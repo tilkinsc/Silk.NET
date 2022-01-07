@@ -478,6 +478,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silk.NET.Vulkan.Loader.Nati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silk.NET.Vulkan.SwiftShader.Native", "src\Native\Silk.NET.Vulkan.SwiftShader.Native\Silk.NET.Vulkan.SwiftShader.Native.csproj", "{54F439B6-36E4-4FB0-8731-F73D42AD921F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interactive", "Interactive", "{BDB3A5C7-9F0A-4F89-BEDF-471B4EEC23EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silk.NET.Interactive.Azure", "src\Interactive\Silk.NET.Interactive.Azure\Silk.NET.Interactive.Azure.csproj", "{1B4C02E5-0CDA-46A1-8429-F95361833928}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -2875,6 +2879,18 @@ Global
 		{54F439B6-36E4-4FB0-8731-F73D42AD921F}.Release|x64.Build.0 = Release|Any CPU
 		{54F439B6-36E4-4FB0-8731-F73D42AD921F}.Release|x86.ActiveCfg = Release|Any CPU
 		{54F439B6-36E4-4FB0-8731-F73D42AD921F}.Release|x86.Build.0 = Release|Any CPU
+		{1B4C02E5-0CDA-46A1-8429-F95361833928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B4C02E5-0CDA-46A1-8429-F95361833928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B4C02E5-0CDA-46A1-8429-F95361833928}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1B4C02E5-0CDA-46A1-8429-F95361833928}.Debug|x64.Build.0 = Debug|Any CPU
+		{1B4C02E5-0CDA-46A1-8429-F95361833928}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1B4C02E5-0CDA-46A1-8429-F95361833928}.Debug|x86.Build.0 = Debug|Any CPU
+		{1B4C02E5-0CDA-46A1-8429-F95361833928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B4C02E5-0CDA-46A1-8429-F95361833928}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B4C02E5-0CDA-46A1-8429-F95361833928}.Release|x64.ActiveCfg = Release|Any CPU
+		{1B4C02E5-0CDA-46A1-8429-F95361833928}.Release|x64.Build.0 = Release|Any CPU
+		{1B4C02E5-0CDA-46A1-8429-F95361833928}.Release|x86.ActiveCfg = Release|Any CPU
+		{1B4C02E5-0CDA-46A1-8429-F95361833928}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -3106,6 +3122,8 @@ Global
 		{8D02DFEB-121A-449B-BC39-09C3F9A88E07} = {72E7FA64-5B1E-477D-BD30-63B7F206B3C4}
 		{36C38837-8250-42F9-ABDA-DEFC1AB129E1} = {72E7FA64-5B1E-477D-BD30-63B7F206B3C4}
 		{54F439B6-36E4-4FB0-8731-F73D42AD921F} = {72E7FA64-5B1E-477D-BD30-63B7F206B3C4}
+		{BDB3A5C7-9F0A-4F89-BEDF-471B4EEC23EC} = {16AFCF73-8CC1-4B5D-8969-A90F468DC6D5}
+		{1B4C02E5-0CDA-46A1-8429-F95361833928} = {BDB3A5C7-9F0A-4F89-BEDF-471B4EEC23EC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F5273D7F-3334-48DF-94E3-41AE6816CD4D}
