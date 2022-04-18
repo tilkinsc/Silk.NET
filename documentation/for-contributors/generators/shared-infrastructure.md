@@ -1,4 +1,13 @@
-﻿# Shared Infrastructure
+﻿---
+{
+    "TableOfContents": {
+        "Name": "Shared Infrastructure",
+        "Url": "shared-infrastructure.html"
+    }
+}
+---
+
+# Shared Infrastructure
 
 The Shared Infrastructure contains common code and abstractions for bootstrapping and running generators within the SilkTouch Stack. It aims to ensure that SilkTouch generators are easily portable, and have a unified interface over multiple generation mediums such that no extra code is required in individual generators to accomodate new form factors.
 

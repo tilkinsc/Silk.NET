@@ -17,12 +17,14 @@ namespace Silk.NET.Statiq
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns>The URL.</returns>
-        public string InputUrl(string path)
+        public string InputUrl(string path) => GetInputUrl(Href(path), Document);
+
+        internal static string GetInputUrl(string href, IDocument document)
         {
             var fs = IExecutionContext.Current.FileSystem;
             var absOutputPath = fs.RootPath / fs.GetOutputPath();
-            var absDestDirPath = fs.RootPath / fs.GetOutputPath(Document.Destination.Parent);
-            var relPath = absDestDirPath.GetRelativePath(absOutputPath / Href(path).TrimStart('/'));
+            var absDestDirPath = fs.RootPath / fs.GetOutputPath(document.Destination.Parent);
+            var relPath = absDestDirPath.GetRelativePath(absOutputPath / href.TrimStart('/'));
             if (relPath.FileName == "index.html")
             {
                 relPath = relPath.Parent;

@@ -1,3 +1,12 @@
+---
+{
+    "TableOfContents": {
+        "Name": "Overview",
+        "Url": "README.html"
+    }
+}
+---
+
 # SilkTouch
 
 SilkTouch is the Silk.NET project's C# native interoperability code generation stack. It contains useful generators which together generate the majority of the library's codebase.

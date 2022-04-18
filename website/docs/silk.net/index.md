@@ -4,7 +4,11 @@
         "Name": "Miscellaneous",
         "Url": "index.html",
         "Children": [
-            { "Url": "::faq.md" }
+            { "Url": "::faq.md" },
+            {
+                "_comment": "Always put this last! Add new pages ABOVE this element!",
+                "Url": "::../../../documentation/for-contributors/index.md"
+            }
         ],
         "Metadata": {
             "theme.silk.nav.big_dropdown.icon.class": "icon icon-shape bg-gradient-danger rounded-circle text-white",

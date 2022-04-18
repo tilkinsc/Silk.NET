@@ -1,4 +1,13 @@
-﻿# Scraper
+﻿---
+{
+    "TableOfContents": {
+        "Name": "Scraper",
+        "Url": "scraper.html"
+    }
+}
+---
+
+# Scraper
 
 The SilkTouch Scraper is responsible for walking through the abstract syntax tree (AST) of a C/C++ header and all the referenced headers therein to generate C# bindings to as much of this as possible where the configuration indicates this is desirable. Only certain headers will have bindings generated for them, which can be specified by providing the paths to the headers to "traverse" in the JSON configuration.
 

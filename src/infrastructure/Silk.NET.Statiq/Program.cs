@@ -27,6 +27,7 @@ public static class Program
                 {
                     x.InputPaths.Clear();
                     x.InputPaths.Add("../../../website");
+                    x.InputPaths.Add("../../../documentation");
                     x.OutputPath = "../../../docs";
                 }
             )
@@ -90,6 +91,7 @@ public static class Program
             )
             .AddShortcode<FancyImageShortCode>("FancyImage")
             .AddShortcode<CaptionShortCode>("Caption")
+            .AddShortcode<TableOfContentsShortcode>("TOC")
             .RunAsync();
     }
 }
