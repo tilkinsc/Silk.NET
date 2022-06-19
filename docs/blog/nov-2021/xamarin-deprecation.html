@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  
+      <title>
+        Silk.NET, .NET 6, and the Sunsetting of Xamarin Support - Silk.NET
+      </title>
+      <meta property="og:title" content="Silk.NET, .NET 6, and the Sunsetting of Xamarin Support" />
+      <meta property="og:site_name" content="Silk.NET - High-Speed &amp; Advanced .NET Graphics &amp; Compute" />
+
+          <meta name="description" content="Silk.NET is coming up on 2.5 years old now, and a lot has happened during that time. Silk.NET has released 2 major updates, in addition to 25 other patches and 5 previews in that time. Furthermore, across all of our packages we have amassed just over 1,000,000 downloads, we&#x27;ve joined the .NET Foundation, we&#x27;ve seen use in multiple sizeable games and game engines, we&#x27;ve had users who worked for Blizzard, Microsoft, HP; and so much more that&#x27;s happened over the past 2.5 years that to list all of it you&#x27;d be reading for quite a while." />
+
+      <meta property="og:type" content="article" />
+
+      <meta name="og:image" content="https://dotnet.github.io/Silk.NET/images/blog/nov-2021/dotnet-bot-selfie-stick.png" />
+      <meta name="og:image:alt" content="Blog Preview Image" />
+      <meta name="twitter:card" content="summary_large_image" />
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link href="../../theme/nucleo.css" rel="stylesheet" />
+  <link href="../../theme/fontawesome.css" rel="stylesheet" />
+  <link href="../../theme/argon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/nord.min.css">
+  <link rel="stylesheet" href="../../theme/silk.css" />
+</head>
+
+<body class="silk-dark">
+  
+  <header class="header-global">
+        <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-horizontal navbar-dark navbar-silk-fixed">
+        
+
+<div class="container-fluid">
+      <a class="navbar-brand silk-dark-only" href="../..">
+        <img src="../../images/wordmarkw.svg">
+      </a>
+      <a class="navbar-brand silk-light-only" href="../..">
+        <img src="../../images/wordmark.svg">
+      </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-collapse collapse" id="navbar_global">
+    <div class="navbar-collapse-header">
+      <div class="row">
+        <div class="col-6 collapse-brand">
+              <a href="../..">
+                <img src="../../images/wordmark.svg">
+              </a>
+        </div>
+        <div class="col-6 collapse-close">
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+              <li class="nav-item dropdown">
+                <a href="../../docs" class="nav-link" data-toggle="dropdown" href="#" role="button">
+                  <i class="ni ni-bold-right d-lg-none"></i>
+                  <span class="nav-link-inner--text">Documentation</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-xl">
+                  <div class="dropdown-menu-inner">
+                            <a href="../../docs/opengl" class="media d-flex align-items-center">
+                              <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                                <i class="ni ni-spaceship"></i>
+                              </div>
+                              <div class="media-body ml-3">
+                                <h6 class="heading text-primary mb-md-1">Getting Started with Silk.NET &amp; OpenGL</h6>
+                                <p class="description d-none d-md-inline-block mb-0">Learn how to use Silk.NET for making basic cross-platform games and applications powered by OpenGL.</p>
+                              </div>
+                            </a>
+                            <a href="../../docs/hlu" class="media d-flex align-items-center">
+                              <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
+                                <i class="ni ni-ui-04"></i>
+                              </div>
+                              <div class="media-body ml-3">
+                                <h6 class="heading text-warning mb-md-1">Silk.NET Windowing &amp; Input Superbible</h6>
+                                <p class="description d-none d-md-inline-block mb-0">The ultimate guide to using Silk.NET&#x27;s high-level cross-platform utilities.</p>
+                              </div>
+                            </a>
+                            <a href="../../docs/silk.net" class="media d-flex align-items-center">
+                              <div class="icon icon-shape bg-gradient-danger rounded-circle text-white">
+                                <i class="ni ni-delivery-fast"></i>
+                              </div>
+                              <div class="media-body ml-3">
+                                <h6 class="heading text-danger mb-md-1">Tips &amp; Tricks</h6>
+                                <p class="description d-none d-md-inline-block mb-0">Miscellaneous further documentation for getting the most out of your Silk.NET applications.</p>
+                              </div>
+                            </a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="../../docs/silk.net/faq.html" class="nav-link">
+                  <i class="ni ni-bold-right d-lg-none"></i>
+                  <span class="nav-link-inner--text">FAQ</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href=".." class="nav-link">
+                  <i class="ni ni-bold-right d-lg-none"></i>
+                  <span class="nav-link-inner--text">Blog</span>
+                </a>
+              </li>
+    </ul>
+    <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+      <li class="nav-item">
+        <a class="nav-link nav-link-icon silk-dark-only" id="lighton" href="#" data-toggle="tooltip" title="Toggle Light Mode">
+          <i class="fa fa-sun"></i>
+          <span class="nav-link-inner--text d-lg-none">Toggle Light Mode</span>
+        </a>
+        <a class="nav-link nav-link-icon silk-light-only" id="lightoff" href="#" data-toggle="tooltip" title="Toggle Dark Mode">
+          <i class="fa fa-moon"></i>
+          <span class="nav-link-inner--text d-lg-none">Toggle Dark Mode</span>
+        </a>
+      </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="https://discord.gg/DTHHXRt" target="_blank" data-toggle="tooltip" title="Chat to us on Discord">
+              <i class="fab fa-discord"></i>
+              <span class="nav-link-inner--text d-lg-none">Discord</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="" target="_blank" data-toggle="tooltip" title="Star us on Github">
+              <i class="fab fa-github"></i>
+              <span class="nav-link-inner--text d-lg-none">GitHub</span>
+            </a>
+          </li>
+          <li class="nav-item d-none d-lg-block ml-lg-4 silk-nav-btn">
+
+            <a href="../../docs" target="_blank" class="btn btn-outline-primary">
+              <span class="nav-link-inner--text">Getting Started</span>
+            </a>
+          </li>
+    </ul>
+  </div>
+</div> 
+        </nav>
+  </header>
+  <div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <!-- Sidenav -->
+                <div class="col-12 col-md-3 col-xl-2 ct-sidebar">
+            <nav class="collapse ct-links" id="ct-docs-nav">
+                <div class="ct-toc-item active">
+                        <a class="ct-toc-link" href="..">
+                            Blog
+                        </a>
+                    <ul class="nav ct-sidenav">
+                                <li>
+                                    <a href="../jan-2022/silkcommunity.html">
+                                        Announcing the Silk.NET Community
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../dec-2021/structure-chaining.html">
+                                        Silk.NET Structure Chaining
+                                    </a>
+                                </li>
+                                <li class="active ct-sidenav-active">
+                                    <a href="xamarin-deprecation.html">
+                                        Silk.NET, .NET 6, and the Sunsetting of Xamarin Support
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../mar-2021/dotnetfoundation.html">
+                                        .NET Foundation &amp; The next stage for Silk.NET
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../feb-2021/buildtools.html">
+                                        Generating an entire library: An introduction to BuildTools
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../jan-2021/silk20.html">
+                                        Announcing Silk.NET 2.0: The Largest Update To Date
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../dec-2020/silk20pre5.html">
+                                        Silk.NET 2.0 Preview 5: The Final Preview
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../dec-2020/silk20pre4.html">
+                                        Go live with Silk.NET 2.0 Preview 4
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../nov-2020/silktouch-slots-vtables.html">
+                                        SilkTouch: Slots &amp; VTables
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../nov-2020/silktouch-invokes-marshalling.html">
+                                        SilkTouch: Invokes &amp; Marshalling
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../nov-2020/silk20pre3.html">
+                                        Announcing Silk.NET 2.0 Preview 3
+                                    </a>
+                                </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        
+        <!-- Content Navigation-->
+        <div class="d-none d-xl-block col-xl-2 ct-toc">
+            <ul class="section-nav"><li class="toc-entry toc-h1"><a href="#silk-net---net-6--and-the-sunsetting-of-xamarin-support">Silk.NET, .NET 6, and the Sunsetting of Xamarin Support</a></li><ul><li class="toc-entry toc-h2"><a href="#net-6">.NET 6</a></li><li class="toc-entry toc-h2"><a href="#silk-net-2-x-s-maintainability">Silk.NET 2.X's Maintainability</a></li><li class="toc-entry toc-h2"><a href="#sunsetting-of-legacy-xamarin-support">Sunsetting of Legacy Xamarin Support</a></li></ul></ul>
+        </div>
+
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 silk-content silk-blog" role="main">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../..">Home</a></li>
+                            <li class="breadcrumb-item"><a href="..">Blog</a></li>
+
+                        <li class="breadcrumb-item active" aria-current="page">Silk.NET, .NET 6, and the Sunsetting of Xamarin Support</li>
+                        <li class="ml-auto silk-sidebar-activator"><a data-toggle="collapse" href="#ct-docs-nav" role="button" aria-expanded="false" aria-controls="ct-docs-nav"><i class="fa fa-bars"></i></a></li>
+                    </ol>
+                </nav>
+
+            <!-- Content -->
+            
+
+
+    <div class="alert alert-danger" role="alert">
+        This site is a work in progress!
+    </div>
+
+<h1 id="silk-net---net-6--and-the-sunsetting-of-xamarin-support">Silk.NET, .NET 6, and the Sunsetting of Xamarin Support</h1>
+<p>Silk.NET is coming up on 2.5 years old now, and a lot has happened during that time. Silk.NET has released 2 major updates, in addition to 25 other patches and 5 previews in that time. Furthermore, across all of our packages we have amassed just over 1,000,000 downloads, we've joined the .NET Foundation, we've seen use in multiple sizeable games and game engines, we've had users who worked for Blizzard, Microsoft, HP; and so much more that's happened over the past 2.5 years that to list all of it you'd be reading for quite a while.</p>
+<p>One of the things Silk.NET prides itself in is keeping up with the times. We have monthly updates which regenerate all of our bindings against the latest versions of their respective headers and specifications, to ensure we're always bringing you the latest and greatest features exposed by the native APIs we bind to. In addition, we're always quick to adopt new platform features as soon as possible.</p>
+<p>For example, Silk.NET adopted C# 9 Source Generators before they were in general availability, as well as C# 9 Function Pointers and C# 9 native integers. We first started on .NET Core 2.1, and since then we've seen the release of .NET Core 3, .NET 5, and now .NET 6; and with every new .NET version we've taken the opportunity to improve at least <em>something</em> using the new features added in that particular update, be it loader improvements, performance enhancements, or whatever else.</p>
+<p>Which brings us now to .NET 6.</p>
+<h2 id="net-6">.NET 6</h2>
+<p>.NET 6 is the largest, final step towards the ecosystem unification that .NET 5 originally aimed to achieve: instead of having a .NET Framework, .NET Core, Xamarin iOS, Xamarin Android, etc; why can't we just have one: &quot;.NET&quot;? As of .NET 6, that dream is pretty much complete. Other than UWP, which Silk.NET didn't support anyway, we now have all platforms at our disposal with one target framework, one Base Class Library (BCL), one SDK, and one build system (<code>dotnet build</code>).</p>
+<p>Today, <strong>Silk.NET supports the release .NET 6 SDK</strong>, and its Windowing and Input abstractions have officially supported Android and experimentally supported iOS for some time now, both through .NET 6 and Xamarin. However, because of how different Xamarin is to modern .NET mobile, we have had to write and maintain a lot of code for this.</p>
+<h2 id="silk-net-2-x-s-maintainability">Silk.NET 2.X's Maintainability</h2>
+<p>Throughout the last 2.5 years, we have been learning as we went. This little corner of the ecosystem is very fast-moving, and it's hard to keep with what the &quot;best practice&quot; is considering by the time the community has decided on one, we had already written our code. As a result, a lot of the Silk.NET code (particularly our two generators BuildTools and SilkTouch) have grown in very strange ways, with the codebases being very large, meandering, and very hard to maintain. This doesn't help when, as mentioned before, we'd frequently added special cases and different generation paths; be it for Xamarin, a new feature we're trying out, or so on... While this complexity only leaked out to users in extremely rare cases, it's a massive blocker for contributors and us maintainers.</p>
+<p>We've been putting lots of thought into the design of Silk.NET 3.0, the future of Silk.NET and our upcoming planned full rewrite of the library (compared to 2.X which was just a partial rewrite &amp; evolution of 1.X) and work on designing this to be the best library we can be continues to this day, but until then we're still stuck maintaining 2.X in all its complexity.</p>
+<p>As such, anywhere we can start chipping away at this codebase can help us massively for the (hopefully shorter than we think) time in which we need to keep maintaining 2.X before 3.0 is fully out-the-door.</p>
+<h2 id="sunsetting-of-legacy-xamarin-support">Sunsetting of Legacy Xamarin Support</h2>
+<p>Shortly before Silk.NET 2.9 released, we announced in our Discord server that to encourage our users to move to .NET 6, as well as to reduce a significant amount of maintenance overhead and contributor friction, the last update before the .NET 6 LTS release (2.10) will be the last to support Legacy Xamarin. Since then, Silk.NET 2.10 has released.</p>
+<p>Back when .NET 6 was first announced, the idea was that its Android and iOS support were going to be generally available with the SDK itself, and the similar (but different) MAUI plans remaining in preview while the Xamarin team ported over everything from Xamarin Forms into MAUI. These plans have now slipped, with .NET 6 Android and .NET 6 iOS still being in preview today.</p>
+<p>Nonetheless, the majority of our users who are using Silk.NET on Android and iOS are using .NET 6, and the maintainence cost of having support for Android and iOS via both legacy Xamarin and modern .NET 6 is too significant to justify supporting the minority of users who aren't using .NET 6.</p>
+<p>Given this, as well as the excellent stability of .NET 6 Android and iOS insofar, we are sticking to our original plans to <strong>remove support for legacy Xamarin</strong> despite .NET 6 Android and iOS still technically being in preview.</p>
+<p>We apologise for the inconvenience this might cause for some of you, but please understand that we're all maintaining this in our free time and if there's something blocking us from using that limited free time in the most efficient &amp; effective way without significant reason for it doing so, chances are it needs to go.</p>
+<p><strong>Please move your Silk.NET mobile applications to .NET 6</strong>. 2.11 will only officially support mobile on .NET 6, and all code in our Windowing and Input abstractions to support legacy Xamarin will be removed.</p>
+<p>Thank you for your continued support.</p>
+<sub>
+Note: This does not change the "experimental" status of our iOS support. We still only officially support Android today, despite iOS working in some capacity.
+</sub>
+
+
+    <hr class="silk-last-hr">
+    <div>
+      <div class="col-md-6">
+        <div class="copyright">
+            &copy; 2022
+                <a href="https://dotnetfoundation.org" target="_blank">.NET Foundation and Contributors</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+        <p class="silk-disclaimer">
+            <small>Khronos&#xAE;, Vulkan&#xAE; are registered trademarks, and OpenXR&#x2122; is a trademark of The Khronos Group Inc. and is registered as a trademark in China, the European Union, Japan and the United Kingdom. OpenCL&#x2122;, OpenGL&#xAE;, and the OpenGL ES&#x2122; logos are registered trademarks or trademarks used under license by Khronos. Microsoft&#xAE; and DirectX&#xAE; are registered trademarks of Microsoft Corporation, used solely for identification. All other product names, trademarks, and/or company names are also used solely for identification and belong to their respective owners. Use of external images, trademarks, and/or resources are not endorsements, and no information in or regarding any of these external resources has been endorsed or approved by Silk.NET or the .NET Foundation.</small>
+            <br>
+            <br>
+            <small>Powered by <a href="https://statiq.dev">Statiq Framework</a></small>
+        </p>
+    </div>
+
+        </main>
+    </div>
+</div>
+
+  <script src="../../theme/jquery.min.js" type="text/javascript"></script>
+  <script src="../../theme/popper.min.js" type="text/javascript"></script>
+  <script src="../../theme/bootstrap.min.js" type="text/javascript"></script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+  <script src="../../theme/argon.js" type="text/javascript"></script>
+  <script src="../../theme/clipboard.min.js"></script>
+  <script src="../../theme/headroom.min.js"></script>
+  <script src="../../theme/silk.js"></script>
+</body>
+
+</html>

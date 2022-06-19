@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  
+      <title>
+        SilkTouch: Invokes &amp; Marshalling - Silk.NET
+      </title>
+      <meta property="og:title" content="SilkTouch: Invokes &amp; Marshalling" />
+      <meta property="og:site_name" content="Silk.NET - High-Speed &amp; Advanced .NET Graphics &amp; Compute" />
+
+          <meta name="description" content="Most people don&#x27;t realize this, but a lot is going into getting all those bindings going. SilkTouch is our solution to automated marshalling. Let&#x27;s first look into what our bindings pipeline looks like, and then I&#x27;ll go into more detail what SilkTouch is, what it does, how it works." />
+
+      <meta property="og:type" content="article" />
+
+      <meta name="og:image" content="https://dotnet.github.io/Silk.NET/images/logo64.png" />
+      <meta name="og:image:alt" content="Silk.NET Logo" />
+      <meta name="twitter:card" content="summary" />
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link href="../../theme/nucleo.css" rel="stylesheet" />
+  <link href="../../theme/fontawesome.css" rel="stylesheet" />
+  <link href="../../theme/argon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/nord.min.css">
+  <link rel="stylesheet" href="../../theme/silk.css" />
+</head>
+
+<body class="silk-dark">
+  
+  <header class="header-global">
+        <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-horizontal navbar-dark navbar-silk-fixed">
+        
+
+<div class="container-fluid">
+      <a class="navbar-brand silk-dark-only" href="../..">
+        <img src="../../images/wordmarkw.svg">
+      </a>
+      <a class="navbar-brand silk-light-only" href="../..">
+        <img src="../../images/wordmark.svg">
+      </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-collapse collapse" id="navbar_global">
+    <div class="navbar-collapse-header">
+      <div class="row">
+        <div class="col-6 collapse-brand">
+              <a href="../..">
+                <img src="../../images/wordmark.svg">
+              </a>
+        </div>
+        <div class="col-6 collapse-close">
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+              <li class="nav-item dropdown">
+                <a href="../../docs" class="nav-link" data-toggle="dropdown" href="#" role="button">
+                  <i class="ni ni-bold-right d-lg-none"></i>
+                  <span class="nav-link-inner--text">Documentation</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-xl">
+                  <div class="dropdown-menu-inner">
+                            <a href="../../docs/opengl" class="media d-flex align-items-center">
+                              <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                                <i class="ni ni-spaceship"></i>
+                              </div>
+                              <div class="media-body ml-3">
+                                <h6 class="heading text-primary mb-md-1">Getting Started with Silk.NET &amp; OpenGL</h6>
+                                <p class="description d-none d-md-inline-block mb-0">Learn how to use Silk.NET for making basic cross-platform games and applications powered by OpenGL.</p>
+                              </div>
+                            </a>
+                            <a href="../../docs/hlu" class="media d-flex align-items-center">
+                              <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
+                                <i class="ni ni-ui-04"></i>
+                              </div>
+                              <div class="media-body ml-3">
+                                <h6 class="heading text-warning mb-md-1">Silk.NET Windowing &amp; Input Superbible</h6>
+                                <p class="description d-none d-md-inline-block mb-0">The ultimate guide to using Silk.NET&#x27;s high-level cross-platform utilities.</p>
+                              </div>
+                            </a>
+                            <a href="../../docs/silk.net" class="media d-flex align-items-center">
+                              <div class="icon icon-shape bg-gradient-danger rounded-circle text-white">
+                                <i class="ni ni-delivery-fast"></i>
+                              </div>
+                              <div class="media-body ml-3">
+                                <h6 class="heading text-danger mb-md-1">Tips &amp; Tricks</h6>
+                                <p class="description d-none d-md-inline-block mb-0">Miscellaneous further documentation for getting the most out of your Silk.NET applications.</p>
+                              </div>
+                            </a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="../../docs/silk.net/faq.html" class="nav-link">
+                  <i class="ni ni-bold-right d-lg-none"></i>
+                  <span class="nav-link-inner--text">FAQ</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href=".." class="nav-link">
+                  <i class="ni ni-bold-right d-lg-none"></i>
+                  <span class="nav-link-inner--text">Blog</span>
+                </a>
+              </li>
+    </ul>
+    <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+      <li class="nav-item">
+        <a class="nav-link nav-link-icon silk-dark-only" id="lighton" href="#" data-toggle="tooltip" title="Toggle Light Mode">
+          <i class="fa fa-sun"></i>
+          <span class="nav-link-inner--text d-lg-none">Toggle Light Mode</span>
+        </a>
+        <a class="nav-link nav-link-icon silk-light-only" id="lightoff" href="#" data-toggle="tooltip" title="Toggle Dark Mode">
+          <i class="fa fa-moon"></i>
+          <span class="nav-link-inner--text d-lg-none">Toggle Dark Mode</span>
+        </a>
+      </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="https://discord.gg/DTHHXRt" target="_blank" data-toggle="tooltip" title="Chat to us on Discord">
+              <i class="fab fa-discord"></i>
+              <span class="nav-link-inner--text d-lg-none">Discord</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="" target="_blank" data-toggle="tooltip" title="Star us on Github">
+              <i class="fab fa-github"></i>
+              <span class="nav-link-inner--text d-lg-none">GitHub</span>
+            </a>
+          </li>
+          <li class="nav-item d-none d-lg-block ml-lg-4 silk-nav-btn">
+
+            <a href="../../docs" target="_blank" class="btn btn-outline-primary">
+              <span class="nav-link-inner--text">Getting Started</span>
+            </a>
+          </li>
+    </ul>
+  </div>
+</div> 
+        </nav>
+  </header>
+  <div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <!-- Sidenav -->
+                <div class="col-12 col-md-3 col-xl-2 ct-sidebar">
+            <nav class="collapse ct-links" id="ct-docs-nav">
+                <div class="ct-toc-item active">
+                        <a class="ct-toc-link" href="..">
+                            Blog
+                        </a>
+                    <ul class="nav ct-sidenav">
+                                <li>
+                                    <a href="../jan-2022/silkcommunity.html">
+                                        Announcing the Silk.NET Community
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../dec-2021/structure-chaining.html">
+                                        Silk.NET Structure Chaining
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../nov-2021/xamarin-deprecation.html">
+                                        Silk.NET, .NET 6, and the Sunsetting of Xamarin Support
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../mar-2021/dotnetfoundation.html">
+                                        .NET Foundation &amp; The next stage for Silk.NET
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../feb-2021/buildtools.html">
+                                        Generating an entire library: An introduction to BuildTools
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../jan-2021/silk20.html">
+                                        Announcing Silk.NET 2.0: The Largest Update To Date
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../dec-2020/silk20pre5.html">
+                                        Silk.NET 2.0 Preview 5: The Final Preview
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../dec-2020/silk20pre4.html">
+                                        Go live with Silk.NET 2.0 Preview 4
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="silktouch-slots-vtables.html">
+                                        SilkTouch: Slots &amp; VTables
+                                    </a>
+                                </li>
+                                <li class="active ct-sidenav-active">
+                                    <a href="silktouch-invokes-marshalling.html">
+                                        SilkTouch: Invokes &amp; Marshalling
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="silk20pre3.html">
+                                        Announcing Silk.NET 2.0 Preview 3
+                                    </a>
+                                </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        
+        <!-- Content Navigation-->
+        <div class="d-none d-xl-block col-xl-2 ct-toc">
+            <ul class="section-nav"><li class="toc-entry toc-h1"><a href="#silktouch--invokes--amp--marshalling">SilkTouch: Invokes &amp; Marshalling</a></li><ul><li class="toc-entry toc-h2"><a href="#silktouch--what-even-is-that">SilkTouch? What even is that?</a></li><li class="toc-entry toc-h2"><a href="#buildtools">BuildTools</a></li><li class="toc-entry toc-h2"><a href="#the-most-basic-case">The most basic case</a></li><li class="toc-entry toc-h2"><a href="#marshalling">Marshalling</a></li></ul></ul>
+        </div>
+
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 silk-content silk-blog" role="main">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../..">Home</a></li>
+                            <li class="breadcrumb-item"><a href="..">Blog</a></li>
+
+                        <li class="breadcrumb-item active" aria-current="page">SilkTouch: Invokes &amp; Marshalling</li>
+                        <li class="ml-auto silk-sidebar-activator"><a data-toggle="collapse" href="#ct-docs-nav" role="button" aria-expanded="false" aria-controls="ct-docs-nav"><i class="fa fa-bars"></i></a></li>
+                    </ol>
+                </nav>
+
+            <!-- Content -->
+            
+
+
+    <div class="alert alert-danger" role="alert">
+        This site is a work in progress!
+    </div>
+
+<h1 id="silktouch--invokes--amp--marshalling">SilkTouch: Invokes &amp; Marshalling</h1>
+<h2 id="silktouch--what-even-is-that">SilkTouch? What even is that?</h2>
+<p>Most people don't realize this, but a lot is going into getting all those bindings going. SilkTouch is our solution to automated marshalling. Let's first look into what our bindings pipeline looks like, and then I'll go into more detail what SilkTouch is, what it does, how it works.</p>
+<h2 id="buildtools">BuildTools</h2>
+<p>This isn't really my area, but I want to briefly touch on it. BuildTools is what takes a huge configuration file linking specifications and headers, and turns it into signatures. That is it's primary purpose, producing signatures. It saves those as partial C# classes, cause this takes, in comparison, a lot of time. BuildTools is a great tool for automating API updates, but that's a topic for another blog post.</p>
+<h2 id="the-most-basic-case">The most basic case</h2>
+<p>SilkTouch is a Source Generator (SG), source generators are a C# 9 feature which and are essentially analyzers, just they get to contribute some code, they get the full compilation (so all code + SyntaxNodes + Roslyn tools) and then get to work. First of all, SilkTouch is a pretty complex SG, and some would say it abuses what SGs are supposed to do. First of all, it takes exceptionally long to complete (not BuildTools long, but a lot longer than your average SG), and instead of generating (C#) strings like most generators, it uses Roslyn SyntaxNodes / SyntaxFactory to generate code, so don't develop a fear for SGs if you look at SilkTouch. They are amazing, I promise!</p>
+<p>Now, above I've said &quot;SilkTouch is our solution to automated marshalling&quot;. Our Core (Silk.NET.Core) is what does all the native library loading, but it only gives us the raw native symbol, for example <code>(delegate unmanaged[Cdecl]&lt;uint, uint, GLEnum, GLEnum*, uint*, GLEnum*, uint*, byte*, uint&gt;)</code> (this is the function pointer form introduced in C# 9, Silk.NET.Core will actually give you an IntPtr). Now, SilkTouch doesn't really know this either, it will (usually) only get something like</p>
+<pre><code class="language-cs">[NativeApi(EntryPoint = &quot;glGetDebugMessageLog&quot;)]
+public unsafe partial uint GetDebugMessageLog(
+    uint count,
+    uint bufSize,
+    [Count(Parameter = &quot;count&quot;)] GLEnum* sources,
+    [Count(Parameter = &quot;count&quot;)] GLEnum* types,
+    [Count(Parameter = &quot;count&quot;)] uint* ids, 
+    [Count(Parameter = &quot;count&quot;)] GLEnum* severities, 
+    [Count(Parameter = &quot;count&quot;)] uint* lengths, 
+    [Count(Parameter = &quot;bufSize&quot;)] byte* messageLog);
+</code></pre>
+<p>This is the most basic case, for now. Here, all the parameters are already in their native form. SilkTouch won't do all that much in this case, the parameters will just pass through the marshalling pipeline, which should feel somewhat familiar to anyone who used Kestrels (ASP.NET Cores) Middlewares. It will then end up at the terminal middleware, called <code>BuildLoadInvoke</code> as you may figure, this build the native invocation call. This will essentially build something like</p>
+<pre><code class="language-cs">n8 = ((delegate *unmanaged[Cdecl]&lt;uint, uint, GLEnum*, GLEnum*, uint*, GLEnum*, uint*, byte*, uint&gt;)(CurrentVTable as GeneratedVTable).Load(719, &quot;glGetDebugMessageLog&quot;))((count), (bufSize), (sources), (types), (ids), (severities), (lengths), (messageLog));
+</code></pre>
+<p class="text-center">
+A function pointer signature generated by SilkTouch. Simplified from the original for readability.
+</p>
+<p>You may notice that this includes a cast to the previously mentioned native signature, and then a call of said signature using the method parameters. We'll for now ignore the <code>(CurrentVTable as GeneratedVTable).Load(719, &quot;glGetDebugMessageLog&quot;)</code> bit, I'll talk about that down the road.</p>
+<p>Awesome! We've made it, that really is all there is to it, in this most basic case. Here is the full signature again:</p>
+<pre><code class="language-cs">public unsafe partial uint GetDebugMessageLog(uint count, uint bufSize, GLEnum* sources, GLEnum* types, uint* ids, GLEnum* severities, uint* lengths, byte* messageLog)
+{
+	uint n8;
+	n8 = ((delegate *unmanaged[Cdecl]&lt;uint, uint, GLEnum*, GLEnum*, uint*, GLEnum*, uint*, byte*, uint&gt;)(CurrentVTable as GeneratedVTable).Load(719, &quot;glGetDebugMessageLog&quot;))((count), (bufSize), (sources), (types), (ids), (severities), (lengths), (messageLog));
+	return n8;
+}
+</code></pre>
+<p class="text-center">
+A finished function generated by SilkTouch. Simplified from the original for readability.
+</p>
+<h2 id="marshalling">Marshalling</h2>
+<p>Now, we don't want to make our users do all the unsafe stuff themselves, for example, users don't have to handle strings themselves, we do our best to handle that. One such overload is</p>
+<pre><code class="language-cs">[NativeApi(EntryPoint = &quot;glGetDebugMessageLog&quot;)]
+public unsafe partial uint GetDebugMessageLog(
+    uint count,
+    uint bufSize,
+    [Count(Parameter = &quot;count&quot;)] GLEnum* sources,
+    [Count(Parameter = &quot;count&quot;)] GLEnum* types,
+    [Count(Parameter = &quot;count&quot;)] uint* ids,
+    [Count(Parameter = &quot;count&quot;)] GLEnum* severities,
+    [Count(Parameter = &quot;count&quot;)] uint* lengths,
+    [Count(Parameter = &quot;bufSize&quot;)] out string messageLog);
+</code></pre>
+<p>This again is what SilkTouch gets from BuildTools. Most of the parameters will just pass through the Marshalling pipeline, but not <code>string</code>! <code>string</code> requires some action from us. The <code>StringMarshaller</code> (the second element in the pipeline) will catch this. Because there are many different ways to encode a string before passing it to native code, it will check whether it knows what this parameter is supposed to be marshalled as (possibilities are <code>BStr</code>, <code>LPWStr</code>, <code>LPStr</code> and <code>LPTStr</code>) or fallback to <code>LPStr</code>.</p>
+<p>Once it knows what native type to marhsal the parameter as, it'll check for the <code>RefKind</code> of the parameter. In this case, <code>out</code>. <code>out</code> parameters are significantly different to the other <code>RefKind</code>s because it needs to figure out how much memory to allocate. We do this using the <code>Count</code> attribute. In this instance a parameter is specified, so we'll pass that parameter as the length argument to <code>SilkMarshal.AllocateString</code> to allocate the buffer for the native string. After all of that, at long last we have a pointer we can pass to native!</p>
+<p>Awesome, the rest of the parameters are fine as is, and we normally generate our invoke like above:</p>
+<pre><code class="language-cs">n9 = ((delegate *unmanaged[Cdecl]&lt;uint, uint, GLEnum*, GLEnum*, uint*, GLEnum*, uint*, byte*, uint&gt;)(CurrentVTable as GeneratedVTable).Load(721, &quot;glGetDebugMessageLog&quot;))((count), (bufSize), (sources), (types), (ids), (severities), (lengths), n8);
+</code></pre>
+<p class="text-center">
+Simplified from the original for readability.
+</p>
+<p>Now, the way the Pipeline works is heavily inspired by how the ASP.NET Core Middlewares work. The first middleware is called with the context, and a callback for the next middleware, and so on. The terminal middleware (<code>BuildLoadInvoke</code>) just does not call <code>next()</code> (doing so would throw) and the recursive stack resolves, now each middleware gets the chance to do post-invoke processing. The string middleware has remembered that this parameter was <code>out</code> and needs some readback. This is done using <code>SilkMarshal.PtrToString</code> the result is written into <code>messageLog</code> and the string buffer is freed using <code>FreeString</code> we return, and done. Here is the full version again:</p>
+<pre><code class="language-cs">public unsafe partial uint GetDebugMessageLog(uint count, uint bufSize, GLEnum* sources, GLEnum* types, uint* ids, GLEnum* severities, uint* lengths, out string messageLog)
+{
+	uint n9;
+	byte* n8;
+	
+	n8 = (byte*)SilkMarshal.AllocateString((int)bufSize, (NativeStringEncoding)20);
+	
+	n9 = ((delegate *unmanaged[Cdecl]&lt;uint, uint, GLEnum*, GLEnum*, uint*, GLEnum*, uint*, byte*, uint&gt;)(CurrentVTable as GeneratedVTable).Load(721, &quot;glGetDebugMessageLog&quot;))((count), (bufSize), (sources), (types), (ids), (severities), (lengths), n8);
+	
+	messageLog = SilkMarshal.PtrToString((IntPtr)n8, (NativeStringEncoding)20);
+	SilkMarshal.FreeString((IntPtr)n8, (NativeStringEncoding)20);
+	return n9;
+}
+</code></pre>
+<p class="text-center">
+Simplified from the original for readability.
+</p>
+<p>If you are interested in this kind of thing, I encourage you to have a look at <a href="https://github.com/dotnet/Silk.NET/tree/v2.0.0/src/Core/Silk.NET.SilkTouch/Middlewares">https://github.com/dotnet/Silk.NET/tree/v2.0.0/src/Core/Silk.NET.SilkTouch/Middlewares</a> It's not that bad, I promise, especially the <code>GenericPointerMarshaller</code> is super simple.
+Onwards in another Blog Post, about Slots &amp; VTables (the bit we ignored above, <code>(CurrentVTable as GeneratedVTable).Load(719, &quot;glGetDebugMessageLog&quot;)</code>). If you'd like to find out more about SilkTouch, again take a look at <a href="https://github.com/dotnet/Silk.NET/tree/v2.0.0/src/Core/Silk.NET.SilkTouch">SilkTouch's source code</a> or head over to <a href="https://discord.gg/DTHHXRt">our Discord server</a> where myself or one of the other maintainers, contributors, or regulars will be happy to answer your questions or just generally have a natter.</p>
+
+
+    <hr class="silk-last-hr">
+    <div>
+      <div class="col-md-6">
+        <div class="copyright">
+            &copy; 2022
+                <a href="https://dotnetfoundation.org" target="_blank">.NET Foundation and Contributors</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+        <p class="silk-disclaimer">
+            <small>Khronos&#xAE;, Vulkan&#xAE; are registered trademarks, and OpenXR&#x2122; is a trademark of The Khronos Group Inc. and is registered as a trademark in China, the European Union, Japan and the United Kingdom. OpenCL&#x2122;, OpenGL&#xAE;, and the OpenGL ES&#x2122; logos are registered trademarks or trademarks used under license by Khronos. Microsoft&#xAE; and DirectX&#xAE; are registered trademarks of Microsoft Corporation, used solely for identification. All other product names, trademarks, and/or company names are also used solely for identification and belong to their respective owners. Use of external images, trademarks, and/or resources are not endorsements, and no information in or regarding any of these external resources has been endorsed or approved by Silk.NET or the .NET Foundation.</small>
+            <br>
+            <br>
+            <small>Powered by <a href="https://statiq.dev">Statiq Framework</a></small>
+        </p>
+    </div>
+
+        </main>
+    </div>
+</div>
+
+  <script src="../../theme/jquery.min.js" type="text/javascript"></script>
+  <script src="../../theme/popper.min.js" type="text/javascript"></script>
+  <script src="../../theme/bootstrap.min.js" type="text/javascript"></script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+  <script src="../../theme/argon.js" type="text/javascript"></script>
+  <script src="../../theme/clipboard.min.js"></script>
+  <script src="../../theme/headroom.min.js"></script>
+  <script src="../../theme/silk.js"></script>
+</body>
+
+</html>

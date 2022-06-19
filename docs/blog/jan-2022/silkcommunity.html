@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  
+      <title>
+        Announcing the Silk.NET Community - Silk.NET
+      </title>
+      <meta property="og:title" content="Announcing the Silk.NET Community" />
+      <meta property="og:site_name" content="Silk.NET - High-Speed &amp; Advanced .NET Graphics &amp; Compute" />
+
+          <meta name="description" content="Over the years, Silk.NET has grown in many directions into many different shapes and sizes. With this, came an influx of a variety of users using Silk.NET for all sorts of brilliant use cases. We do our best to cater for everyone, but we&#x27;re always watching out for scope creep and maintenance cost. As a result, in some cases we just can&#x27;t provide for some users in Silk.NET itself, which is meant to be general-purpose and is a large enough library as-is." />
+
+      <meta property="og:type" content="article" />
+
+      <meta name="og:image" content="https://dotnet.github.io/Silk.NET/images/blog/jan-2022/silkcommunity.png" />
+      <meta name="og:image:alt" content="Blog Preview Image" />
+      <meta name="twitter:card" content="summary_large_image" />
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link href="../../theme/nucleo.css" rel="stylesheet" />
+  <link href="../../theme/fontawesome.css" rel="stylesheet" />
+  <link href="../../theme/argon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/nord.min.css">
+  <link rel="stylesheet" href="../../theme/silk.css" />
+</head>
+
+<body class="silk-dark">
+  
+  <header class="header-global">
+        <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-horizontal navbar-dark navbar-silk-fixed">
+        
+
+<div class="container-fluid">
+      <a class="navbar-brand silk-dark-only" href="../..">
+        <img src="../../images/wordmarkw.svg">
+      </a>
+      <a class="navbar-brand silk-light-only" href="../..">
+        <img src="../../images/wordmark.svg">
+      </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-collapse collapse" id="navbar_global">
+    <div class="navbar-collapse-header">
+      <div class="row">
+        <div class="col-6 collapse-brand">
+              <a href="../..">
+                <img src="../../images/wordmark.svg">
+              </a>
+        </div>
+        <div class="col-6 collapse-close">
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+              <li class="nav-item dropdown">
+                <a href="../../docs" class="nav-link" data-toggle="dropdown" href="#" role="button">
+                  <i class="ni ni-bold-right d-lg-none"></i>
+                  <span class="nav-link-inner--text">Documentation</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-xl">
+                  <div class="dropdown-menu-inner">
+                            <a href="../../docs/opengl" class="media d-flex align-items-center">
+                              <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                                <i class="ni ni-spaceship"></i>
+                              </div>
+                              <div class="media-body ml-3">
+                                <h6 class="heading text-primary mb-md-1">Getting Started with Silk.NET &amp; OpenGL</h6>
+                                <p class="description d-none d-md-inline-block mb-0">Learn how to use Silk.NET for making basic cross-platform games and applications powered by OpenGL.</p>
+                              </div>
+                            </a>
+                            <a href="../../docs/hlu" class="media d-flex align-items-center">
+                              <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
+                                <i class="ni ni-ui-04"></i>
+                              </div>
+                              <div class="media-body ml-3">
+                                <h6 class="heading text-warning mb-md-1">Silk.NET Windowing &amp; Input Superbible</h6>
+                                <p class="description d-none d-md-inline-block mb-0">The ultimate guide to using Silk.NET&#x27;s high-level cross-platform utilities.</p>
+                              </div>
+                            </a>
+                            <a href="../../docs/silk.net" class="media d-flex align-items-center">
+                              <div class="icon icon-shape bg-gradient-danger rounded-circle text-white">
+                                <i class="ni ni-delivery-fast"></i>
+                              </div>
+                              <div class="media-body ml-3">
+                                <h6 class="heading text-danger mb-md-1">Tips &amp; Tricks</h6>
+                                <p class="description d-none d-md-inline-block mb-0">Miscellaneous further documentation for getting the most out of your Silk.NET applications.</p>
+                              </div>
+                            </a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="../../docs/silk.net/faq.html" class="nav-link">
+                  <i class="ni ni-bold-right d-lg-none"></i>
+                  <span class="nav-link-inner--text">FAQ</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href=".." class="nav-link">
+                  <i class="ni ni-bold-right d-lg-none"></i>
+                  <span class="nav-link-inner--text">Blog</span>
+                </a>
+              </li>
+    </ul>
+    <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+      <li class="nav-item">
+        <a class="nav-link nav-link-icon silk-dark-only" id="lighton" href="#" data-toggle="tooltip" title="Toggle Light Mode">
+          <i class="fa fa-sun"></i>
+          <span class="nav-link-inner--text d-lg-none">Toggle Light Mode</span>
+        </a>
+        <a class="nav-link nav-link-icon silk-light-only" id="lightoff" href="#" data-toggle="tooltip" title="Toggle Dark Mode">
+          <i class="fa fa-moon"></i>
+          <span class="nav-link-inner--text d-lg-none">Toggle Dark Mode</span>
+        </a>
+      </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="https://discord.gg/DTHHXRt" target="_blank" data-toggle="tooltip" title="Chat to us on Discord">
+              <i class="fab fa-discord"></i>
+              <span class="nav-link-inner--text d-lg-none">Discord</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="" target="_blank" data-toggle="tooltip" title="Star us on Github">
+              <i class="fab fa-github"></i>
+              <span class="nav-link-inner--text d-lg-none">GitHub</span>
+            </a>
+          </li>
+          <li class="nav-item d-none d-lg-block ml-lg-4 silk-nav-btn">
+
+            <a href="../../docs" target="_blank" class="btn btn-outline-primary">
+              <span class="nav-link-inner--text">Getting Started</span>
+            </a>
+          </li>
+    </ul>
+  </div>
+</div> 
+        </nav>
+  </header>
+  <div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <!-- Sidenav -->
+                <div class="col-12 col-md-3 col-xl-2 ct-sidebar">
+            <nav class="collapse ct-links" id="ct-docs-nav">
+                <div class="ct-toc-item active">
+                        <a class="ct-toc-link" href="..">
+                            Blog
+                        </a>
+                    <ul class="nav ct-sidenav">
+                                <li class="active ct-sidenav-active">
+                                    <a href="silkcommunity.html">
+                                        Announcing the Silk.NET Community
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../dec-2021/structure-chaining.html">
+                                        Silk.NET Structure Chaining
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../nov-2021/xamarin-deprecation.html">
+                                        Silk.NET, .NET 6, and the Sunsetting of Xamarin Support
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../mar-2021/dotnetfoundation.html">
+                                        .NET Foundation &amp; The next stage for Silk.NET
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../feb-2021/buildtools.html">
+                                        Generating an entire library: An introduction to BuildTools
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../jan-2021/silk20.html">
+                                        Announcing Silk.NET 2.0: The Largest Update To Date
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../dec-2020/silk20pre5.html">
+                                        Silk.NET 2.0 Preview 5: The Final Preview
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../dec-2020/silk20pre4.html">
+                                        Go live with Silk.NET 2.0 Preview 4
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../nov-2020/silktouch-slots-vtables.html">
+                                        SilkTouch: Slots &amp; VTables
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../nov-2020/silktouch-invokes-marshalling.html">
+                                        SilkTouch: Invokes &amp; Marshalling
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../nov-2020/silk20pre3.html">
+                                        Announcing Silk.NET 2.0 Preview 3
+                                    </a>
+                                </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        
+        <!-- Content Navigation-->
+        <div class="d-none d-xl-block col-xl-2 ct-toc">
+            <ul class="section-nav"><li class="toc-entry toc-h1"><a href="#announcing-the-silk-net-community-program">Announcing the Silk.NET Community program</a></li><ul><li class="toc-entry toc-h2"><a href="#trippygl">TrippyGL</a></li><li class="toc-entry toc-h2"><a href="#silkynvg">SilkyNvg</a></li><li class="toc-entry toc-h2"><a href="#get-your-project-involved">Get your project involved!</a></li></ul></ul>
+        </div>
+
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 silk-content silk-blog" role="main">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../..">Home</a></li>
+                            <li class="breadcrumb-item"><a href="..">Blog</a></li>
+
+                        <li class="breadcrumb-item active" aria-current="page">Announcing the Silk.NET Community</li>
+                        <li class="ml-auto silk-sidebar-activator"><a data-toggle="collapse" href="#ct-docs-nav" role="button" aria-expanded="false" aria-controls="ct-docs-nav"><i class="fa fa-bars"></i></a></li>
+                    </ol>
+                </nav>
+
+            <!-- Content -->
+            
+
+
+    <div class="alert alert-danger" role="alert">
+        This site is a work in progress!
+    </div>
+
+<h1 id="announcing-the-silk-net-community-program">Announcing the Silk.NET Community program</h1>
+<p>Over the years, Silk.NET has grown in many directions into many different shapes and sizes. With this, came an influx of a variety of users using Silk.NET for all sorts of brilliant use cases. We do our best to cater for everyone, but we're always watching out for scope creep and maintenance cost. As a result, in some cases we just can't provide for some users in Silk.NET itself, which is meant to be general-purpose and is a large enough library as-is.</p>
+<p>This leads the community whip up their own libraries to cater for their needs, but more often than not someone else comes along with similar needs uncatered for by Silk.NET itself. We point them at the community's library, but they choose not to adopt it due to lack of perceived maturity, popularity, or whatever else.</p>
+<p>To solve this problem, we are introducing a new facet to the Silk.NET project: The Silk.NET Community - a home for useful community-maintained extensions for the Silk.NET library recognised by the official Silk.NET maintenance team.</p>
+<p>We created the Silk.NET Community to give extra recognition to projects the Silk.NET team deem useful and trustworthy, and to serve as a single location for community projects endorsed by the Silk.NET team.</p>
+<p>Benefits for the user:</p>
+<ul>
+<li>A single location for add-ons to Silk.NET - no need to go hunting!</li>
+<li>Readily-available access to mature projects that can be trusted and are endorsed by the Silk.NET team</li>
+</ul>
+<p>Benefits to the community project maintainers:</p>
+<ul>
+<li>More exposure to more users</li>
+<li>Greater user buy-in given the &quot;Trusted by the Silk.NET Team&quot; image</li>
+</ul>
+<p>Benefits for the Silk.NET maintainers:</p>
+<ul>
+<li>No need to envelop these projects into the main library, as a result:
+<ul>
+<li>Less work to maintain the Silk.NET library</li>
+<li>Less risk of scope creep</li>
+</ul>
+</li>
+</ul>
+<p>With the launch of the Silk.NET Community, we have already brought two projects on-board for the &quot;pilot&quot;. These are:</p>
+<h2 id="trippygl">TrippyGL</h2>
+<p>TrippyGL is a graphics library that aims to make OpenGL easier to use. It provides a set of functionality similar to libraries like MonoGame, while allowing you greater control of your application and the graphics system by focusing on OpenGL.</p>
+<p>TrippyGL is built for .NET Standard 2.1, which means you can run this on any .NET Standard 2.1 compliant platform such as .NET Core!</p>
+<p>Checkout TrippyGL here: <a href="https://github.com/SilkCommunity/TrippyGL">https://github.com/SilkCommunity/TrippyGL</a></p>
+<h2 id="silkynvg">SilkyNvg</h2>
+<p>SilkyNvg is a C#-ified port of Mikko Memononen's popular vector graphics C library NanoVG. It tries to remain close to the original API while also adapting to fit in better with C# code (e.g. the interface is completely safe). It is built to have easily interchangeable rendering pipelines (including your own custom renderers), with OpenGL and Vulkan renderers built with Silk.NET provided out-of-the-box.</p>
+<p>SilkyNvg exists because the NanoVG library is likely the best vector-graphics API currently available, yet it's use outside of C/C++ has generally been difficult with ports mostly depending on bindings and providing your own native DLLs. Instead, SilkyNvg is written purely in C# using .NET 5 to enable simple cross-platform use (no extra native dependencies!).</p>
+<p>Checkout SilkyNvg here: <a href="https://github.com/SilkCommunity/SilkyNvg">https://github.com/SilkCommunity/SilkyNvg</a></p>
+<h2 id="get-your-project-involved">Get your project involved!</h2>
+<p>We'd love your help in growing the Silk.NET Community to be the one source for as many useful extensions to Silk.NET as humanly possible! If you have a library that builds on top of Silk.NET or interacts with Silk.NET in some way (be it a model loader, abstraction over many Silk.NET APIs, or whatever else), we'd love to hear from you! Simply <a href="https://github.com/SilkCommunity/SilkCommunity/issues/new?assignees=Perksey%2C+ThomasMiz%2C+HurricanKai&amp;labels=project+submission&amp;template=project-submission.md&amp;title=Project+Submission%3A+">open a submission issue on GitHub</a> and we'll get back to you. If you're unsure, open one anyway and we'll let you know!</p>
+
+
+    <hr class="silk-last-hr">
+    <div>
+      <div class="col-md-6">
+        <div class="copyright">
+            &copy; 2022
+                <a href="https://dotnetfoundation.org" target="_blank">.NET Foundation and Contributors</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+        <p class="silk-disclaimer">
+            <small>Khronos&#xAE;, Vulkan&#xAE; are registered trademarks, and OpenXR&#x2122; is a trademark of The Khronos Group Inc. and is registered as a trademark in China, the European Union, Japan and the United Kingdom. OpenCL&#x2122;, OpenGL&#xAE;, and the OpenGL ES&#x2122; logos are registered trademarks or trademarks used under license by Khronos. Microsoft&#xAE; and DirectX&#xAE; are registered trademarks of Microsoft Corporation, used solely for identification. All other product names, trademarks, and/or company names are also used solely for identification and belong to their respective owners. Use of external images, trademarks, and/or resources are not endorsements, and no information in or regarding any of these external resources has been endorsed or approved by Silk.NET or the .NET Foundation.</small>
+            <br>
+            <br>
+            <small>Powered by <a href="https://statiq.dev">Statiq Framework</a></small>
+        </p>
+    </div>
+
+        </main>
+    </div>
+</div>
+
+  <script src="../../theme/jquery.min.js" type="text/javascript"></script>
+  <script src="../../theme/popper.min.js" type="text/javascript"></script>
+  <script src="../../theme/bootstrap.min.js" type="text/javascript"></script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+  <script src="../../theme/argon.js" type="text/javascript"></script>
+  <script src="../../theme/clipboard.min.js"></script>
+  <script src="../../theme/headroom.min.js"></script>
+  <script src="../../theme/silk.js"></script>
+</body>
+
+</html>
